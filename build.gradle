@@ -1,3 +1,5 @@
+import java.lang.reflect.Method
+
 plugins {
     id 'java'
     id 'maven-publish'
@@ -28,10 +30,10 @@ dependencies {
     // Tools
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
     implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
-    implementation("io.github.portlek:configs-core:4.9.1")
-    implementation("io.github.portlek:configs-bukkit:4.9.1")
-    implementation("io.github.portlek:configs-yaml:4.9.1")
-    implementation("io.github.portlek:configs-json:4.9.1")
+    compile("io.github.portlek:configs-core:4.9.1")
+    compile("io.github.portlek:configs-bukkit:4.9.1")
+    compile("io.github.portlek:configs-yaml:4.9.1")
+    compile("io.github.portlek:configs-json:4.9.1")
 
     // Other Stuffs
     compileOnly("tr.com.infumia:KekoUtil:1.3")
@@ -45,17 +47,17 @@ dependencies {
 
 shadowJar {
     dependencies {
-        exclude(dependency {
-            def string = it.module.toString()
-            
-        })
+        exclude(dependency(':Simple-Configuration:'))
+        exclude(dependency(':mapentry:'))
+        exclude(dependency(':version:'))
+        exclude(dependency(':replaceable:'))
+        exclude(dependency(':reflection:'))
+        exclude(dependency(':jsongration:'))
     }
-
     // Change the "kekotemplate" case.
     relocate('co.aikar.commands', this.group + ".kekotemplate.commands")
     relocate('io.github.portlek.configs', this.group + ".kekotemplate.file")
     relocate('co.aikar.idb', this.group + ".kekotemplate.db")
-    minimize()
     setArchivesBaseName(this.name)
     archiveClassifier.set("")
     archiveVersion.set("")
