@@ -46,28 +46,31 @@ dependencies {
 
 shadowJar {
     mergeServiceFiles('')
-    exclude 'org/**'
-    exclude 'com/**'
-    exclude 'io/github/portlek/bukkititembuilder/**'
-    exclude 'io/github/portlek/bukkitlocation/**'
-    exclude 'io/github/portlek/jsongration/**'
-    exclude 'io/github/portlek/mapentry/**'
-    exclude 'io/github/portlek/reflection/**'
-    exclude 'io/github/portlek/replaceable/**'
-    exclude 'io/github/portlek/version/**'
-    exclude 'io/github/bananapuncher714/**'
-    exclude 'META-INF/maven/org.yaml/**'
-    exclude 'META-INF/maven/me.carleslc/**'
-    exclude 'META-INF/maven/io.github.bananapuncher714/**'
-    exclude 'META-INF/maven/com.eclipsesource.minimal-json/**'
-    exclude 'META-INF/maven/com.github.cryptomorin/**'
-    exclude 'META-INF/maven/io.github.portlek/BukkitItemBuilder/**'
-    exclude 'META-INF/maven/io.github.portlek/bukkit-location/**'
-    exclude 'META-INF/maven/io.github.portlek/jsongration/**'
-    exclude 'META-INF/maven/io.github.portlek/mapentry/**'
-    exclude 'META-INF/maven/io.github.portlek/reflection/**'
-    exclude 'META-INF/maven/io.github.portlek/replaceable/**'
-    exclude 'META-INF/maven/io.github.portlek/version/**'
+    ['org/**',
+     'com/**',
+     'io/github/portlek/bukkititembuilder/**',
+     'io/github/portlek/bukkitlocation/**',
+     'io/github/portlek/jsongration/**',
+     'io/github/portlek/mapentry/**',
+     'io/github/portlek/reflection/**',
+     'io/github/portlek/replaceable/**',
+     'io/github/portlek/version/**',
+     'io/github/bananapuncher714/**',
+     'META-INF/maven/org.yaml/**',
+     'META-INF/maven/me.carleslc/**',
+     'META-INF/maven/io.github.bananapuncher714/**',
+     'META-INF/maven/com.eclipsesource.minimal-json/**',
+     'META-INF/maven/com.github.cryptomorin/**',
+     'META-INF/maven/io.github.portlek/BukkitItemBuilder/**',
+     'META-INF/maven/io.github.portlek/bukkit-location/**',
+     'META-INF/maven/io.github.portlek/jsongration/**',
+     'META-INF/maven/io.github.portlek/mapentry/**',
+     'META-INF/maven/io.github.portlek/reflection/**',
+     'META-INF/maven/io.github.portlek/replaceable/**',
+     'META-INF/maven/io.github.portlek/version/**'
+    ].forEach {
+        exclude it
+    }
 
     // Change the "kekotemplate" case.
     relocate('co.aikar.commands', this.group + ".kekotemplate.commands")
