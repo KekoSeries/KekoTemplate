@@ -1,0 +1,114 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'kr.entree.spigradle' version '2.1.1'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+group = "tr.com.infumia"
+version = "1.0"
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    spigot()
+    maven {
+        url = "https://repo.aikar.co/content/groups/aikar/"
+    }
+    maven {
+        url = "https://repo.codemc.org/repository/maven-public"
+    }
+}
+
+dependencies {
+    // Tools
+    implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
+    implementation("io.github.portlek:configs-core:4.9.1")
+    implementation("io.github.portlek:configs-bukkit:4.9.1")
+    implementation("io.github.portlek:configs-yaml:4.9.1")
+    implementation("io.github.portlek:configs-json:4.9.1")
+    implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
+
+    // Other Stuffs
+    compileOnly("tr.com.infumia:KekoUtil:1.1")
+    compileOnly("org.jetbrains:annotations:20.0.0")
+    compileOnly("org.projectlombok:lombok:1.18.12")
+    annotationProcessor("org.projectlombok:lombok:1.18.12")
+
+    // Main
+    compileOnly spigot()
+}
+
+shadowJar {
+    // Change the "kekotemplate" case.
+    relocate('co.aikar.commands', this.group + ".kekotemplate.commands")
+    relocate('io.github.portlek.configs', this.group + ".kekotemplate.file")
+    relocate('org.simpleyaml', this.group + ".kekotemplate.simpleyaml")
+    relocate('co.aikar.idb', this.group + ".kekotemplate.db")
+    minimize()
+    setArchivesBaseName(this.name)
+    archiveClassifier.set("")
+    archiveVersion.set("")
+}
+
+spigot {
+    description = "Bukkit plugin template to create plugins as fast as possible."
+    apiVersion = "1.13"
+    authors = ["infumia"]
+    softDepends = ["KekoUtil"]
+    commands {
+        kekotemplate {
+            description = 'Main command of the plugin.'
+            permission = 'kekotemplate.command.main'
+            permissionMessage = 'You do not have permission!'
+            usage = '/<command> [help|reload|version]'
+            aliases = ['bt']
+        }
+    }
+    permissions {
+        'kekotemplate.*' {
+            description = 'Allows you to access to the all plugin.'
+            defaults = 'op'
+            children = [
+                'kekotemplate.command.*': true
+            ]
+        }
+        'kekotemplate.command.*' {
+            description = 'It allows you to use to all commands of the plugin.'
+            defaults = 'op'
+            children = [
+                'kekotemplate.command.help'   : true,
+                'kekotemplate.command.reload' : true,
+                'kekotemplate.command.version': true,
+                'kekotemplate.command.message': true
+            ]
+        }
+        'kekotemplate.version' {
+            description = 'It allows you to notify if there is a new update for the plugin on join.'
+            defaults = 'op'
+        }
+        'kekotemplate.command.main' {
+            description = 'It allows you to use `/kekotemplate` command.'
+            defaults = 'true'
+        }
+        'kekotemplate.command.help' {
+            description = 'It allows you to use to `/kekotemplate help` command.'
+            defaults = 'true'
+        }
+        'kekotemplate.command.reload' {
+            description = 'It allows you to use to `/kekotemplate reload` command.'
+            defaults = 'op'
+        }
+        'kekotemplate.command.version' {
+            description = 'It allows you to use to `/kekotemplate version` command.'
+            defaults = 'op'
+        }
+        'kekotemplate.command.message' {
+            description = 'It allows you to use to `/kekotemplate message` command.'
+            defaults = 'true'
+        }
+    }
+}
