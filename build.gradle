@@ -30,11 +30,10 @@ dependencies {
     // Tools
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
     implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
-    compile("io.github.portlek:configs-core:4.9.1")
-    compile("io.github.portlek:configs-bukkit:4.9.1")
-    compile("io.github.portlek:configs-yaml:4.9.1")
-    compile("io.github.portlek:configs-json:4.9.1")
-
+    implementation("io.github.portlek:configs-core:4.9.1")
+    implementation("io.github.portlek:configs-bukkit:4.9.1")
+    implementation("io.github.portlek:configs-yaml:4.9.1")
+    implementation("io.github.portlek:configs-json:4.9.1")
     // Other Stuffs
     compileOnly("tr.com.infumia:KekoUtil:1.3")
     compileOnly("org.jetbrains:annotations:20.0.0")
@@ -46,14 +45,30 @@ dependencies {
 }
 
 shadowJar {
-    dependencies {
-        exclude(dependency(':Simple-Configuration:'))
-        exclude(dependency(':mapentry:'))
-        exclude(dependency(':version:'))
-        exclude(dependency(':replaceable:'))
-        exclude(dependency(':reflection:'))
-        exclude(dependency(':jsongration:'))
-    }
+    mergeServiceFiles('')
+    exclude 'org/**'
+    exclude 'com/**'
+    exclude 'io/github/portlek/bukkititembuilder/**'
+    exclude 'io/github/portlek/bukkitlocation/**'
+    exclude 'io/github/portlek/jsongration/**'
+    exclude 'io/github/portlek/mapentry/**'
+    exclude 'io/github/portlek/reflection/**'
+    exclude 'io/github/portlek/replaceable/**'
+    exclude 'io/github/portlek/version/**'
+    exclude 'io/github/bananapuncher714/**'
+    exclude 'META-INF/maven/org.yaml/**'
+    exclude 'META-INF/maven/me.carleslc/**'
+    exclude 'META-INF/maven/io.github.bananapuncher714/**'
+    exclude 'META-INF/maven/com.eclipsesource.minimal-json/**'
+    exclude 'META-INF/maven/com.github.cryptomorin/**'
+    exclude 'META-INF/maven/io.github.portlek/BukkitItemBuilder/**'
+    exclude 'META-INF/maven/io.github.portlek/bukkit-location/**'
+    exclude 'META-INF/maven/io.github.portlek/jsongration/**'
+    exclude 'META-INF/maven/io.github.portlek/mapentry/**'
+    exclude 'META-INF/maven/io.github.portlek/reflection/**'
+    exclude 'META-INF/maven/io.github.portlek/replaceable/**'
+    exclude 'META-INF/maven/io.github.portlek/version/**'
+
     // Change the "kekotemplate" case.
     relocate('co.aikar.commands', this.group + ".kekotemplate.commands")
     relocate('io.github.portlek.configs', this.group + ".kekotemplate.file")
