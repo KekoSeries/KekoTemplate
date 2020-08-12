@@ -3,16 +3,14 @@ package io.github.plugintemplate.bukkittemplate;
 import co.aikar.idb.DB;
 import io.github.plugintemplate.bukkittemplate.file.ConfigFile;
 import io.github.plugintemplate.bukkittemplate.file.LanguageFile;
-import io.github.plugintemplate.bukkittemplate.util.FileElement;
-import io.github.plugintemplate.bukkittemplate.util.ListenerBasic;
-import io.github.plugintemplate.bukkittemplate.util.UpdateChecker;
 import io.github.portlek.configs.CfgSection;
-import io.github.portlek.smartinventory.SmartInventory;
-import io.github.portlek.smartinventory.manager.BasicSmartInventory;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.jetbrains.annotations.NotNull;
+import tr.com.infumia.kekoutil.FileElement;
+import tr.com.infumia.kekoutil.ListenerUtilities;
+import tr.com.infumia.kekoutil.UpdateChecker;
 
 // TODO Change the class name as you want.
 @RequiredArgsConstructor

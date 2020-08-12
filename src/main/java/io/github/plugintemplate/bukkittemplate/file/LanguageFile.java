@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
             name = "en_US",
             type = YamlFileType.class,
             // TODO: Change the plugin data folder as you want.
-            location = "%basedir%/BukkitTemplate/languages"
+            location = "%basedir%/KekoTemplate/languages"
         )
     ),
     @LinkedFile(
@@ -29,7 +29,7 @@ import org.jetbrains.annotations.NotNull;
             name = "tr_TR",
             type = YamlFileType.class,
             // TODO: Change the plugin data folder as you want.
-            location = "%basedir%/BukkitTemplate/languages"
+            location = "%basedir%/KekoTemplate/languages"
         )
     ),
 })
@@ -47,30 +47,30 @@ public final class LanguageFile extends BukkitLinkedManaged {
             new StringBuilder()
                 .append("&a====== %prefix% &a======")
                 .append('\n')
-                .append("&7/bukkittemplate &r> &eShows help message.")
+                .append("&7/kekotemplate &r> &eShows help message.")
                 .append('\n')
-                .append("&7/bukkittemplate help &r> &eShows help message.")
+                .append("&7/kekotemplate help &r> &eShows help message.")
                 .append('\n')
-                .append("&7/bukkittemplate reload &r> &eReloads the plugin.")
+                .append("&7/kekotemplate reload &r> &eReloads the plugin.")
                 .append('\n')
-                .append("&7/bukkittemplate version &r> &eChecks for update.")
+                .append("&7/kekotemplate version &r> &eChecks for update.")
                 .append('\n')
-                .append("&7/bukkittemplate message <player> <message> &r> &eSends the message to the player."))
+                .append("&7/kekotemplate message <player> <message> &r> &eSends the message to the player."))
             .map(ColorUtil::colored)
             .replace(this.getPrefix()));
         m.put("tr", Replaceable.from(
             new StringBuilder()
                 .append("&a====== %prefix% &a======")
                 .append('\n')
-                .append("&7/bukkittemplate &r> &eYardım mesajını görüntüler.")
+                .append("&7/kekotemplate &r> &eYardım mesajını görüntüler.")
                 .append('\n')
-                .append("&7/bukkittemplate help &r> &eYardım mesajını görüntüler.")
+                .append("&7/kekotemplate help &r> &eYardım mesajını görüntüler.")
                 .append('\n')
-                .append("&7/bukkittemplate reload &r> &eEklentiyi yeniden başlatır.")
+                .append("&7/kekotemplate reload &r> &eEklentiyi yeniden başlatır.")
                 .append('\n')
-                .append("&7/bukkittemplate version &r> &eGüncellemeleri kontrol eder.")
+                .append("&7/kekotemplate version &r> &eGüncellemeleri kontrol eder.")
                 .append('\n')
-                .append("&7/bukkittemplate message <oyuncu> <mesaj> &r> &eMesajı oyuncuya gönderir."))
+                .append("&7/kekotemplate message <oyuncu> <mesaj> &r> &eMesajı oyuncuya gönderir."))
             .map(ColorUtil::colored)
             .replace(this.getPrefix()));
     });

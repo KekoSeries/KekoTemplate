@@ -22,12 +22,12 @@ public final class KekoTemplate extends JavaPlugin {
     @NotNull
     public static KekoTemplate getInstance() {
         return Optional.ofNullable(KekoTemplate.instance).orElseThrow(() ->
-            new IllegalStateException("You cannot be used BukkitTemplate plugin before its start!"));
+            new IllegalStateException("You cannot be used KekoTemplate plugin before its start!"));
     }
 
     private void setInstance(@NotNull final KekoTemplate instance) {
         if (Optional.ofNullable(KekoTemplate.instance).isPresent()) {
-            throw new IllegalStateException("You can't use BukkitTemplate#setInstance method twice!");
+            throw new IllegalStateException("You can't use KekoTemplate#setInstance method twice!");
         }
         synchronized (KekoTemplate.LOCK) {
             KekoTemplate.instance = instance;
@@ -37,12 +37,12 @@ public final class KekoTemplate extends JavaPlugin {
     @NotNull
     public static KekoTemplateAPI getAPI() {
         return Optional.ofNullable(KekoTemplate.api).orElseThrow(() ->
-            new IllegalStateException("You cannot be used BukkitTemplate plugin before its start!"));
+            new IllegalStateException("You cannot be used KekoTemplate plugin before its start!"));
     }
 
     private void setAPI(@NotNull final KekoTemplateAPI loader) {
         if (Optional.ofNullable(KekoTemplate.api).isPresent()) {
-            throw new IllegalStateException("You can't use BukkitTemplate#setAPI method twice!");
+            throw new IllegalStateException("You can't use KekoTemplate#setAPI method twice!");
         }
         synchronized (KekoTemplate.LOCK) {
             KekoTemplate.api = loader;

@@ -26,14 +26,17 @@ repositories {
 dependencies {
     // Tools
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
+    implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
     implementation("io.github.portlek:configs-core:4.9.1")
     implementation("io.github.portlek:configs-bukkit:4.9.1")
     implementation("io.github.portlek:configs-yaml:4.9.1")
-    implementation("io.github.portlek:configs-json:4.9.1")
-    implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
+    implementation("io.github.portlek:configs-json:4.9.1") {
+        exclude group: 'io.github.portlek', module: 'jsongration'
+        exclude group: 'com.eclipsesource.minimal-json', module: 'minimal-json'
+    }
 
     // Other Stuffs
-    compileOnly("tr.com.infumia:KekoUtil:1.1")
+    compileOnly("tr.com.infumia:KekoUtil:1.0")
     compileOnly("org.jetbrains:annotations:20.0.0")
     compileOnly("org.projectlombok:lombok:1.18.12")
     annotationProcessor("org.projectlombok:lombok:1.18.12")
@@ -46,7 +49,6 @@ shadowJar {
     // Change the "kekotemplate" case.
     relocate('co.aikar.commands', this.group + ".kekotemplate.commands")
     relocate('io.github.portlek.configs', this.group + ".kekotemplate.file")
-    relocate('org.simpleyaml', this.group + ".kekotemplate.simpleyaml")
     relocate('co.aikar.idb', this.group + ".kekotemplate.db")
     minimize()
     setArchivesBaseName(this.name)

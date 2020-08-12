@@ -4,7 +4,6 @@ import co.aikar.idb.DB;
 import co.aikar.idb.DatabaseOptions;
 import co.aikar.idb.HikariPooledDatabase;
 import co.aikar.idb.PooledDatabaseOptions;
-import io.github.plugintemplate.bukkittemplate.hooks.*;
 import io.github.portlek.configs.annotations.Config;
 import io.github.portlek.configs.annotations.Instance;
 import io.github.portlek.configs.annotations.Property;
@@ -22,12 +21,13 @@ import java.util.function.BooleanSupplier;
 import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
+import tr.com.infumia.kekoutil.hooks.*;
 
 @Config(
     name = "config",
     type = YamlFileType.class,
     // TODO: Change the plugin data folder as you want.
-    location = "%basedir%/BukkitTemplate"
+    location = "%basedir%/KekoTemplate"
 )
 public final class ConfigFile extends BukkitManaged {
 
@@ -50,7 +50,7 @@ public final class ConfigFile extends BukkitManaged {
 
     // TODO: Change the plugin prefix as you want.
     @Property
-    public RpString plugin_prefix = Replaceable.from("&6[&eBukkitTemplate&6]")
+    public RpString plugin_prefix = Replaceable.from("&6[&eKekoTemplate&6]")
         .map(ColorUtil::colored);
 
     @Property

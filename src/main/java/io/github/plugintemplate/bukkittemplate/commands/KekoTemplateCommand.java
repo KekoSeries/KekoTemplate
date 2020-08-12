@@ -9,23 +9,23 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
 // TODO Change class, command, permission name as you want.
-@CommandAlias("bukkittemplate|bt")
+@CommandAlias("kekotemplate|bt")
 public final class KekoTemplateCommand extends BaseCommand {
 
     @Default
-    @CommandPermission("bukkittemplate.command.main")
+    @CommandPermission("kekotemplate.command.main")
     public void defaultCommand(final CommandSender sender) {
         sender.sendMessage(KekoTemplate.getAPI().languageFile.help_messages.get().build());
     }
 
     @Subcommand("help")
-    @CommandPermission("bukkittemplate.command.help")
+    @CommandPermission("kekotemplate.command.help")
     public void helpCommand(final CommandSender sender) {
         this.defaultCommand(sender);
     }
 
     @Subcommand("reload")
-    @CommandPermission("bukkittemplate.command.reload")
+    @CommandPermission("kekotemplate.command.reload")
     public void reloadCommand(final CommandSender sender) {
         final long millis = System.currentTimeMillis();
         KekoTemplate.getAPI().reloadPlugin(false);
@@ -34,13 +34,13 @@ public final class KekoTemplateCommand extends BaseCommand {
     }
 
     @Subcommand("version")
-    @CommandPermission("bukkittemplate.command.version")
+    @CommandPermission("kekotemplate.command.version")
     public void versionCommand(final CommandSender sender) {
         KekoTemplate.getAPI().checkForUpdate(sender);
     }
 
     @Subcommand("message")
-    @CommandPermission("bukkittemplate.command.message")
+    @CommandPermission("kekotemplate.command.message")
     @CommandCompletion("@players <message>")
     public void messageCommand(final CommandSender sender, @Conditions("player:arg=0") final String[] args) {
         if (args.length < 1) {
