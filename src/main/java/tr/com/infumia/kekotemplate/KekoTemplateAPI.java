@@ -53,7 +53,6 @@ public final class KekoTemplateAPI {
     public final KekoTemplate kekoTemplate;
 
     public void reloadPlugin(final boolean first) {
-        CfgSection.addProvidedClass(FileElement.class, new FileElement.Provider());
         this.languageFile.load();
         this.configFile.load();
         this.configFile.createSQL();
