@@ -50,6 +50,10 @@ shadowJar {
     archiveVersion.set("")
 }
 
+task gradleVersion(type: Wrapper) {
+    gradleVersion = '6.6'
+}
+
 spigot {
     // TODO Change the description as you want.
     description = "Bukkit plugin template to create plugins as fast as possible."
