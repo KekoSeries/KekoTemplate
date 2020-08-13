@@ -27,11 +27,12 @@ package tr.com.infumia.kekotemplate.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
-import tr.com.infumia.kekotemplate.KekoTemplate;
 import io.github.portlek.configs.bukkit.util.ColorUtil;
 import java.util.Optional;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
+import tr.com.infumia.kekotemplate.KekoTemplate;
+import tr.com.infumia.kekoutil.TaskUtilities;
 
 // TODO Change class, command, permission names as you want.
 @CommandAlias("kekotemplate|bt")
@@ -53,7 +54,8 @@ public final class KekoTemplateCommand extends BaseCommand {
     @CommandPermission("kekotemplate.command.reload")
     public void reloadCommand(final CommandSender sender) {
         final long millis = System.currentTimeMillis();
-        KekoTemplate.getAPI().reloadPlugin(false);
+        TaskUtilities.async(() ->
+            KekoTemplate.getAPI().reloadPlugin(false));
         sender.sendMessage(KekoTemplate.getAPI().languageFile.generals.reload_complete.get()
             .build("%ms%", () -> String.valueOf(System.currentTimeMillis() - millis)));
     }

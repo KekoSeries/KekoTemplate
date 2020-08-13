@@ -26,15 +26,17 @@
 package tr.com.infumia.kekotemplate;
 
 import co.aikar.idb.DB;
-import tr.com.infumia.kekotemplate.file.ConfigFile;
-import tr.com.infumia.kekotemplate.file.LanguageFile;
 import io.github.portlek.configs.CfgSection;
+import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.jetbrains.annotations.NotNull;
+import tr.com.infumia.kekotemplate.file.ConfigFile;
+import tr.com.infumia.kekotemplate.file.LanguageFile;
 import tr.com.infumia.kekoutil.FileElement;
 import tr.com.infumia.kekoutil.ListenerUtilities;
+import tr.com.infumia.kekoutil.TaskUtilities;
 import tr.com.infumia.kekoutil.UpdateChecker;
 
 // TODO Change the class name as you want.
@@ -58,22 +60,19 @@ public final class KekoTemplateAPI {
         if (first) {
             ListenerUtilities.register(
                 PlayerJoinEvent.class,
-                event -> event.getPlayer().hasPermission("bukkittemplate.version"),
+                event -> event.getPlayer().hasPermission("kekotemplate.version"),
                 event -> this.checkForUpdate(event.getPlayer()),
-                this.kekoTemplate
-            );
+                this.kekoTemplate);
             // TODO: Listeners should be here.
         }
         this.kekoTemplate.getServer().getScheduler().cancelTasks(this.kekoTemplate);
         if (this.configFile.saving.auto_save) {
-            this.kekoTemplate.getServer().getScheduler().runTaskTimer(
-                this.kekoTemplate,
-                () -> {
-                    // TODO Add codes for saving data as automatic
-                },
+            TaskUtilities.asyncTimerLater(
                 this.configFile.saving.auto_save_time * 20L,
-                this.configFile.saving.auto_save_time * 20L
-            );
+                this.configFile.saving.auto_save_time * 20L,
+                () -> {
+                    // TODO Add codes for saving data as automatic.
+                });
         }
         this.checkForUpdate(this.kekoTemplate.getServer().getConsoleSender());
     }
@@ -93,7 +92,7 @@ public final class KekoTemplateAPI {
                 sender.sendMessage(this.languageFile.generals.latest_version.get()
                     .build("%version%", updater::getNewVersion));
             }
-        } catch (final Exception exception) {
+        } catch (final IOException exception) {
             this.kekoTemplate.getLogger().warning("Update checker failed, could not connect to the API.");
         }
     }

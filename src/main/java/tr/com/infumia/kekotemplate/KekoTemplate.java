@@ -26,12 +26,13 @@
 package tr.com.infumia.kekotemplate;
 
 import co.aikar.commands.*;
-import tr.com.infumia.kekotemplate.commands.KekoTemplateCommand;
 import java.util.Optional;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import tr.com.infumia.kekotemplate.commands.KekoTemplateCommand;
+import tr.com.infumia.kekoutil.TaskUtilities;
 
 // TODO Change the class name as you want.
 public final class KekoTemplate extends JavaPlugin {
@@ -87,8 +88,8 @@ public final class KekoTemplate extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.getServer().getScheduler().runTask(this, () ->
-            this.getServer().getScheduler().runTaskAsynchronously(this, () ->
+        TaskUtilities.sync(() ->
+            TaskUtilities.async(() ->
                 KekoTemplate.getAPI().reloadPlugin(true)));
         final BukkitCommandManager manager = new BukkitCommandManager(this);
         final CommandConditions<BukkitCommandIssuer, BukkitCommandExecutionContext, BukkitConditionContext> conditions =
