@@ -27,7 +27,7 @@ package tr.com.infumia.kekotemplate.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
-import io.github.portlek.configs.bukkit.util.ColorUtil;
+import io.github.portlek.bukkititembuilder.util.ColorUtil;
 import java.util.Optional;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
