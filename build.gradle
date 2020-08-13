@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "tr.com.infumia"
-version = "1.0"
+version = "1.0-SNAPSHOT"
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -16,11 +16,15 @@ repositories {
     jcenter()
     spigot()
     jitpack()
+    codemc()
     maven {
         url = "https://repo.aikar.co/content/groups/aikar/"
     }
     maven {
-        url = "https://repo.codemc.org/repository/maven-public"
+        url = "http://dl.bintray.com/tastybento/maven-repo"
+    }
+    maven {
+        url = "https://repo.extendedclip.com/content/repositories/placeholderapi/"
     }
 }
 
@@ -29,7 +33,7 @@ dependencies {
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
     implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
     // Other Stuffs
-    compileOnly("tr.com.infumia:KekoUtil:2.6")
+    compileOnly("tr.com.infumia:KekoUtil:2.7")
     compileOnly("org.jetbrains:annotations:20.0.0")
     compileOnly("org.projectlombok:lombok:1.18.12")
     annotationProcessor("org.projectlombok:lombok:1.18.12")
