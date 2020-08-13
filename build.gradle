@@ -30,12 +30,8 @@ dependencies {
     // Tools
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
     implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
-    implementation("io.github.portlek:configs-core:4.9.1")
-    implementation("io.github.portlek:configs-bukkit:4.9.1")
-    implementation("io.github.portlek:configs-yaml:4.9.1")
-    implementation("io.github.portlek:configs-json:4.9.1")
     // Other Stuffs
-    compileOnly("tr.com.infumia:KekoUtil:1.5")
+    compileOnly("tr.com.infumia:KekoUtil:1.6")
     compileOnly("org.jetbrains:annotations:20.0.0")
     compileOnly("org.projectlombok:lombok:1.18.12")
     annotationProcessor("org.projectlombok:lombok:1.18.12")
@@ -45,36 +41,8 @@ dependencies {
 }
 
 shadowJar {
-    mergeServiceFiles('')
-    ['org/**',
-     'com/**',
-     'io/github/portlek/bukkititembuilder/**',
-     'io/github/portlek/bukkitlocation/**',
-     'io/github/portlek/jsongration/**',
-     'io/github/portlek/mapentry/**',
-     'io/github/portlek/reflection/**',
-     'io/github/portlek/replaceable/**',
-     'io/github/portlek/version/**',
-     'io/github/bananapuncher714/**',
-     'META-INF/maven/org.yaml/**',
-     'META-INF/maven/me.carleslc/**',
-     'META-INF/maven/io.github.bananapuncher714/**',
-     'META-INF/maven/com.eclipsesource.minimal-json/**',
-     'META-INF/maven/com.github.cryptomorin/**',
-     'META-INF/maven/io.github.portlek/BukkitItemBuilder/**',
-     'META-INF/maven/io.github.portlek/bukkit-location/**',
-     'META-INF/maven/io.github.portlek/jsongration/**',
-     'META-INF/maven/io.github.portlek/mapentry/**',
-     'META-INF/maven/io.github.portlek/reflection/**',
-     'META-INF/maven/io.github.portlek/replaceable/**',
-     'META-INF/maven/io.github.portlek/version/**'
-    ].forEach {
-        exclude it
-    }
-
     // Change the "kekotemplate" case.
     relocate('co.aikar.commands', this.group + ".kekotemplate.commands")
-    relocate('io.github.portlek.configs', this.group + ".kekotemplate.file")
     relocate('co.aikar.idb', this.group + ".kekotemplate.db")
     setArchivesBaseName(this.name)
     archiveClassifier.set("")
