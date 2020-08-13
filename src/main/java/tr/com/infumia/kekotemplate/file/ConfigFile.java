@@ -123,7 +123,8 @@ public final class ConfigFile extends BukkitManaged {
     @NotNull
     @SuppressWarnings("unchecked")
     public <T extends Wrapped> Optional<T> getWrapped(@NotNull final String wrappedId) {
-        return Optional.ofNullable((T) this.wrapped.get(wrappedId));
+        return Optional.ofNullable(this.wrapped.get(wrappedId))
+            .map(o -> (T) o);
     }
 
     private boolean isMySQL() {

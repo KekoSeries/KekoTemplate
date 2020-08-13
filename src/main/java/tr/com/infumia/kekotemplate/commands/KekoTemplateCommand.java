@@ -33,7 +33,7 @@ import java.util.Optional;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
-// TODO Change class, command, permission name as you want.
+// TODO Change class, command, permission names as you want.
 @CommandAlias("kekotemplate|bt")
 public final class KekoTemplateCommand extends BaseCommand {
 
@@ -78,8 +78,7 @@ public final class KekoTemplateCommand extends BaseCommand {
                 builder.append(' ');
             }
         }
-        // player cannot be null cause @Conditions("player:arg=0") this condition checks
-        // if args[0] is in the server.
+        // player cannot be null cause @Conditions("player:arg=0") condition checks if args[0] is in the server.
         Optional.ofNullable(Bukkit.getPlayer(args[0])).ifPresent(player ->
             player.sendMessage(builder.toString()));
     }
