@@ -32,7 +32,7 @@ import java.util.Optional;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import tr.com.infumia.kekotemplate.KekoTemplate;
-import tr.com.infumia.kekoutil.TaskUtilities;
+import tr.com.infumia.kekoutil.util.TaskUtilities;
 
 // TODO Change class, command, permission names as you want.
 @CommandAlias("kekotemplate|bt")

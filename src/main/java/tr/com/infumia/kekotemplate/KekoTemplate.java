@@ -32,7 +32,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tr.com.infumia.kekotemplate.commands.KekoTemplateCommand;
-import tr.com.infumia.kekoutil.TaskUtilities;
+import tr.com.infumia.kekoutil.util.TaskUtilities;
 
 // TODO Change the class name as you want.
 public final class KekoTemplate extends JavaPlugin {

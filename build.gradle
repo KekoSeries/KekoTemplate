@@ -62,7 +62,7 @@ spigot {
     apiVersion = "1.13"
     // TODO Change the authors as you want.
     authors = ["infumia"]
-    softDepends = ["KekoUtil"]
+    softDepends = ["KekoTemplate"]
     // TODO Change the commands/permissions as you want.
     commands {
         kekotemplate {

@@ -26,7 +26,6 @@
 package tr.com.infumia.kekotemplate;
 
 import co.aikar.idb.DB;
-import io.github.portlek.configs.CfgSection;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandSender;
@@ -34,10 +33,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.jetbrains.annotations.NotNull;
 import tr.com.infumia.kekotemplate.file.ConfigFile;
 import tr.com.infumia.kekotemplate.file.LanguageFile;
-import tr.com.infumia.kekoutil.FileElement;
-import tr.com.infumia.kekoutil.ListenerUtilities;
-import tr.com.infumia.kekoutil.TaskUtilities;
-import tr.com.infumia.kekoutil.UpdateChecker;
+import tr.com.infumia.kekoutil.util.ListenerUtilities;
+import tr.com.infumia.kekoutil.util.TaskUtilities;
+import tr.com.infumia.kekoutil.util.UpdateChecker;
 
 // TODO Change the class name as you want.
 @RequiredArgsConstructor
