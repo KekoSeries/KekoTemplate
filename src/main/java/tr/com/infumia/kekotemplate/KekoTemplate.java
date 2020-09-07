@@ -27,6 +27,7 @@ package tr.com.infumia.kekotemplate;
 
 import co.aikar.commands.*;
 import java.util.Optional;
+import kr.entree.spigradle.annotations.PluginMain;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -35,6 +36,7 @@ import tr.com.infumia.kekotemplate.commands.KekoTemplateCommand;
 import tr.com.infumia.kekoutil.util.TaskUtilities;
 
 // TODO Change the class name as you want.
+@PluginMain
 public final class KekoTemplate extends JavaPlugin {
 
     private static final Object LOCK = new Object();
