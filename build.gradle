@@ -35,7 +35,7 @@ dependencies {
     implementation("co.aikar:acf-bukkit:0.5.0-SNAPSHOT")
     implementation("co.aikar:idb-bukkit:1.0.0-SNAPSHOT")
     // Other Stuffs
-    compileOnly("tr.com.infumia:KekoUtil:6.4")
+    compileOnly("tr.com.infumia:KekoUtil:6.5")
     compileOnly("org.jetbrains:annotations:20.1.0")
     compileOnly("org.projectlombok:lombok:1.18.12")
     annotationProcessor("org.projectlombok:lombok:1.18.12")
